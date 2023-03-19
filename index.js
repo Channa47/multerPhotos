@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const cors = require('cors')
 const app = express();
-app.use(cors({origin:"*"}))
+app.use(cors({ origin: '*' }));
 // connect to MongoDB Atlas
 mongoose.connect('mongodb+srv://channa:channa@cluster0.g3ghjv3.mongodb.net/mockthirteen?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -30,6 +30,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 // define a route for uploading files
 app.post('/uploadImages', upload.single('file'), async (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
   try {
     const { originalname, mimetype, buffer } = req.file;
     const file = new File({
@@ -46,6 +47,7 @@ app.post('/uploadImages', upload.single('file'), async (req, res) => {
   }
 });
 app.get('/',async(req,res)=>{
+  res.header('Access-Control-Allow-Origin', '*');
     try{
     let Data = await File.find();
     res.send(Data);
