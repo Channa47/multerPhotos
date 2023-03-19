@@ -17,6 +17,11 @@ const fileSchema = new mongoose.Schema({
   size: Number,
   data: Buffer,
 });
+// "cors": "^2.8.5",
+//     "express": "^4.18.2",
+//     "mongoose": "^7.0.2",
+//     "multer": "^1.4.5-lts.1",
+//     "nodemon": "^2.0.21"
 
 const File = mongoose.model('ChatGtpImages', fileSchema);
 
