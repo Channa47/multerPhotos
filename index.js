@@ -42,7 +42,7 @@ app.post('/uploadImages', upload.single('file'), async (req, res) => {
     await file.save();
     res.json({ message: 'File uploaded successfully' });
   } catch (error) {
-    console.error(error);
+    console.log(error);
     res.status(500).json({ message: 'Server error' });
   }
 });
